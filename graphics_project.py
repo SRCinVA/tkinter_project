@@ -1,16 +1,17 @@
 from tkinter import *
 
-# for iOS, have to put the function first
-def km_to_miles():
-    print("Success!") # printing out a statment helps you highlight where problems are happening
-
 window = Tk()
 
-b1=Button(window, text="Execute", command=km_to_miles()) # .. AND you need the brackets for iOS.
+def km_to_miles():
+    miles = float(e1_value.get())*1.6
+    t1.insert(END, miles)  # pass an argument to put the string in the text field at the END of the field.
+
+b1=Button(window, text="Execute", command=km_to_miles)
 b1.grid(row=0,column=0, rowspan=3)
 
 # an entry widget:
-e1=Entry(window)
+e1_value=StringVar()
+e1=Entry(window, textvariable=e1_value)
 e1.grid(row=0,column=1)
 
 # one for text (with parameters for dimensions, and for iOS, to highlight the text box):
